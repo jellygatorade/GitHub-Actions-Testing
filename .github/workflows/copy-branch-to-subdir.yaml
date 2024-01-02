@@ -1,4 +1,4 @@
-name: Deploy from two branches
+name: Copy branch to main subdirectory
 
 on:
   push:
@@ -24,6 +24,6 @@ jobs:
           clean: false
       # Delete the .git folder from `src/dev-deploy`
       # This turns the files into a plain folder instead of a git repository
-      - run: rm -rf ${{ env.$REL_PATH }}/.git
+      - run: rm -rf ${{ env.REL_PATH }}/.git
 
       - run: echo "🍏 This job's status is ${{ job.status }}."
