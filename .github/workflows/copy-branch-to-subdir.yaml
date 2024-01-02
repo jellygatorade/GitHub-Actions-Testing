@@ -19,7 +19,7 @@ jobs:
         with:
           ref: other
           # Put the checked out files inside the `src/dev-deploy` folder
-          path: $REL_PATH
+          path: ${{ env.REL_PATH }}
           # Execute `git clean -ffdx && git reset --hard HEAD` before fetching
           clean: false
       # Delete the .git folder from `src/dev-deploy`
