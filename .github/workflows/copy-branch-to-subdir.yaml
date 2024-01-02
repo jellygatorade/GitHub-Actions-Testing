@@ -14,6 +14,9 @@ jobs:
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
 
+      # Create directory
+      - run: mkdir ${{ env.REL_PATH }}
+
       # Checkout the `other` branch
       - uses: actions/checkout@v4
         with:
