@@ -21,9 +21,9 @@ jobs:
           # Put the checked out files inside the `src/dev-deploy` folder
           path: $REL_PATH
           # Execute `git clean -ffdx && git reset --hard HEAD` before fetching
-          clean: true
+          clean: false
       # Delete the .git folder from `src/dev-deploy`
       # This turns the files into a plain folder instead of a git repository
-      - run: rm -rf $REL_PATH/.git
+      - run: rm -rf ${{ env.$REL_PATH }}/.git
 
       - run: echo "🍏 This job's status is ${{ job.status }}."
