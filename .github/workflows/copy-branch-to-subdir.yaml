@@ -1,0 +1,29 @@
+name: Deploy from two branches
+
+on:
+  push:
+    branches: [main]
+
+env:
+  REL_PATH: src/dev-deploy
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+
+      # Checkout the `other` branch
+      - uses: actions/checkout@v4
+        with:
+          ref: other
+          # Put the checked out files inside the `src/dev-deploy` folder
+          path: $REL_PATH
+          # Execute `git clean -ffdx && git reset --hard HEAD` before fetching
+          clean: true
+      # Delete the .git folder from `src/dev-deploy`
+      # This turns the files into a plain folder instead of a git repository
+      - run: rm -rf $REL_PATH/.git
+
+      - run: echo "🍏 This job's status is ${{ job.status }}."
