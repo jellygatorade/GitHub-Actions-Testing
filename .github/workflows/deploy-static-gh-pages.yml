@@ -38,13 +38,18 @@ jobs:
       - name: Build static site - main
         run: cp -r "./src" "./public" # main branch
 
-        # Checkout the `other` branch, mounting to .public/dev
+        # Checkout the `other` branch, mounting to ./public/dev
       - name: Build static site - dev
         uses: actions/checkout@v4
         with:
           ref: other
           path: ./public/dev # Put the checked out files inside the `./public/dev` folder
           clean: false
+
+      # Delete the .git folder from `./public/dev/`
+      # This turns the files into a plain folder instead of a git repository
+      - name: Remove .git folder from dev deployment
+        run: rm -rf ./public/dev/.git
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
