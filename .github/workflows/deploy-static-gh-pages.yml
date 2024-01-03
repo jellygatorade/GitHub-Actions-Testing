@@ -40,7 +40,7 @@ jobs:
 
         # Build static site
       - name: Build static site - main
-        run: cp -r "./src" "./public" # main branch
+        run: cp -r "./src" "./public" # Mock build step for main branch
 
         # Checkout the `other` branch, mounting to ./public/dev
       - name: Build static site - dev
@@ -53,7 +53,7 @@ jobs:
       # Copy contents of ./public/dev/src to ./public/dev/ and remove ./public/dev/src
       # Delete the .git folder from `./public/dev/` - turns the files into a plain folder instead of a git repository
       - name: Reorganize dev deployment
-        run: |
+        run: | # Mock build step for dev branch
           cp ./public/dev/src/* ./public/dev
           rm -rf ./public/dev/src
           rm -rf ./public/dev/.git
