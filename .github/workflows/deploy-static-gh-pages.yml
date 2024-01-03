@@ -58,7 +58,7 @@ jobs:
       # Copy contents of ./public/dev/src to ./public/dev/ and remove ./public/dev/src
       - name: Reorganize dev deployment
         run: |
-          cp -r "./public/dev/src/" "./public/dev/"
+          cp "./public/dev/src/*" "./public/dev"
         #  rm -rf ./public/dev/src
 
       - name: Setup Pages
