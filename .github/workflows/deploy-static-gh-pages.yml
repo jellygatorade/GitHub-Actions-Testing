@@ -35,10 +35,11 @@ jobs:
         uses: actions/checkout@v4
 
         # Build static site
-      - name: Build static site
+      - name: Build static site - main
         run: cp -r "./src" "./public" # main branch
 
         # Checkout the `other` branch, mounting to .public/dev
+      - name: Build static site - dev
         uses: actions/checkout@v4
         with:
           ref: other
