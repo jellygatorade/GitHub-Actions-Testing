@@ -50,16 +50,13 @@ jobs:
           path: ./public/dev # Put the checked out files inside the `./public/dev` folder
           clean: false
 
-      # Delete the .git folder from `./public/dev/`
-      # This turns the files into a plain folder instead of a git repository
-      - name: Remove .git folder from dev deployment
-        run: rm -rf ./public/dev/.git
-
       # Copy contents of ./public/dev/src to ./public/dev/ and remove ./public/dev/src
+      # Delete the .git folder from `./public/dev/` - turns the files into a plain folder instead of a git repository
       - name: Reorganize dev deployment
         run: |
           cp ./public/dev/src/* ./public/dev
           rm -rf ./public/dev/src
+          rm -rf ./public/dev/.git
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
