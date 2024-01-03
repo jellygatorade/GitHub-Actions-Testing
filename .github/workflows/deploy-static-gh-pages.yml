@@ -1,10 +1,14 @@
 # Simple workflow for deploying static content to GitHub Pages
 name: Deploy static content to Pages
 
+env:
+  PROD_BRANCH: main
+  DEV_BRANCH: other
+
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["main"]
+    branches: ${{ env.PROD_BRANCH }}
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -42,7 +46,7 @@ jobs:
       - name: Build static site - dev
         uses: actions/checkout@v4
         with:
-          ref: other
+          ref: ${{ env.DEV_BRANCH }}
           sparse-checkout: |
             src
           path: ./public/dev # Put the checked out files inside the `./public/dev` folder
