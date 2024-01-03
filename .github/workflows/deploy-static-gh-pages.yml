@@ -2,8 +2,8 @@
 name: Deploy static content to Pages
 
 env:
-  PROD_BRANCH: main
-  DEV_BRANCH: other
+  PROD_BRANCH: "main"
+  DEV_BRANCH: "other"
 
 on:
   # Runs on pushes targeting the default branch
