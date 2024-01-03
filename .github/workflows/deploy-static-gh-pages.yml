@@ -59,7 +59,7 @@ jobs:
       - name: Reorganize dev deployment
         run: |
           cp -r "./public/dev/src" "./public/dev/"
-          rm -rf ./public/dev/src
+        #  rm -rf ./public/dev/src
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
