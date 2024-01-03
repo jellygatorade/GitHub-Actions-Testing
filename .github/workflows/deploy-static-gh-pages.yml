@@ -58,7 +58,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Specify directory for publishing (uploads this directory for hosting)
-          path: "./public/dev"
+          path: "./public"
 
       - name: Deploy to GitHub Pages
         id: deployment
