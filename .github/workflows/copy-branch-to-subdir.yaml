@@ -7,11 +7,16 @@ on:
 env:
   REL_PATH: src/dev-deploy
 
+# currently this is all happening on an ephemeral system which gets destroyed when the action is complete
+# how to evince that this is working correctly? Should I just go ahead and deploy to GitHub pages?
+
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Something
+
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
 
       # Checkout the `main` branch
