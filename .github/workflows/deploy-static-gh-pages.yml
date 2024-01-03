@@ -34,9 +34,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-        # need to copy files to public here
+        # Build static site
       - name: Build static site
-        run: cp -r "./src" "./public"
+        run: cp -r "./src" "./public" # main branch
+
+        # Checkout the `other` branch, mounting to .public/dev
+        uses: actions/checkout@v4
+        with:
+          ref: other
+          path: ./public/dev # Put the checked out files inside the `./public/dev` folder
+          clean: false
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
